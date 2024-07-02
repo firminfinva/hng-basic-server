@@ -11,4 +11,4 @@ RUN pnpm install
 
 RUN pnpm start
 
-CMD ["node", "src/server.js"]
+CMD ["node", "server.js"]
