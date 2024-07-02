@@ -3,7 +3,11 @@ import axios from "axios";
 
 const app = express();
 const port = process.env.PORT;
-
+app.get("/", (req, res) => {
+  res.json({
+    message: "add this to your url - /api/hello?visitor_name='Mark'",
+  });
+});
 app.get("/api/hello", async (req, res) => {
   const visitorName = req.query.visitor_name;
   const clientIp =
