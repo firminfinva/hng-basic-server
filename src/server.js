@@ -25,7 +25,7 @@ app.get("/api/hello", async (req, res) => {
     res.json({
       client_ip: clientIp,
       location: city,
-      greeting: `Hello, ${visitor}!, the temperature is ${temperature}degrees Celsius in ${city}`,
+      greeting: `Hello, ${visitor}!, the temperature is ${temperature} degrees Celsius in ${city}`,
     });
   } catch {
     res.status(500).json({ error: error });
@@ -34,7 +34,7 @@ app.get("/api/hello", async (req, res) => {
 
 app.get("/", (req, res) => {
   res.json({
-    message: "add this to your url - /api/hello?visitor_name='Mark'",
+    message: "add this to your url - /api/hello?visitor_name='Firmin'",
   });
 });
 app.listen(port, () => {
