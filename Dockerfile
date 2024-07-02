@@ -9,6 +9,4 @@ COPY pnpm-lock.yaml ./
 
 RUN pnpm install
 
-RUN pnpm start
-
 CMD ["node", "server.js"]
