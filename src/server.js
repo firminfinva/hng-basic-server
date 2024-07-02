@@ -12,9 +12,8 @@ app.get("/api/hello", async (req, res) => {
     req.headers["x-forwarded-for"] ||
     req.socket.remoteAddress ||
     "";
-
+  const visitor = visitorName.slice(1, visitorName.length - 1);
   const ipApiResponse = await axios.get(`http://ip-api.com/json/${clientIp}`);
-  console.log("ip Api", ipApiResponse);
   const { city } = ipApiResponse.data || "new york";
 
   const weatherApiKey = process.env.WEATHERAPIKEY;
