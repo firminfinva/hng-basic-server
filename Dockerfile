@@ -7,6 +7,8 @@ WORKDIR /src
 COPY package*.json ./
 COPY pnpm-lock.yaml ./
 
+COPY . .
+
 RUN pnpm install
 
 CMD ["node", "server.js"]
