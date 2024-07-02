@@ -2,7 +2,7 @@ import express from "express";
 import axios from "axios";
 
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 app.get("/api/hello", async (req, res) => {
   try {
     const visitorName = req.query.visitor_name;
