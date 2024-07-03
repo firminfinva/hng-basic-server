@@ -1,4 +1,5 @@
 import express from "express";
+import axios from "axios";
 
 const app = express();
 const port = process.env.PORT;
@@ -12,11 +13,11 @@ app.get("/api/hello", async (req, res) => {
       req.socket.remoteAddress ||
       "";
     const visitor = visitorName.slice(1, visitorName.length - 1);
-    const ipApiResponse = await fetch.get(`http://ip-api.com/json/${clientIp}`);
+    const ipApiResponse = await axios.get(`http://ip-api.com/json/${clientIp}`);
     const { city } = ipApiResponse.data || "new york";
 
-    const weatherApiKey = "f1b75d25b6752caa1a8087f2cb774377";
-    const weatherApiResponse = await fetch.get(
+    const weatherApiKey = process.env.WEATHERAPIKEY;
+    const weatherApiResponse = await axios.get(
       `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${weatherApiKey}`
     );
     const temperature = weatherApiResponse.data.main.temp;
